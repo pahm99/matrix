@@ -1,10 +1,11 @@
 from Matrix import Matrix
 
+
 def pedirMatrix(name):
     print("Ingresa la dimesion de la matriz " + name)
     m = int(input("No renglones de " + name + ': '))
     n = int(input("No columnas de " + name + ': '))
-    return Matrix(m,n,name)
+    return Matrix(m, n, name)
 
 
 a = pedirMatrix('A')
@@ -26,7 +27,8 @@ a.print()
 b.fill()
 b.print()
 
-c = a * b
-print(a,b)
-print(c)
 
+c = a * b
+print(a, b)
+
+c.print()
