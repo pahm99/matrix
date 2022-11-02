@@ -14,7 +14,7 @@ b = pedirMatrix('B')
 if not a.productoViable(b):
     print("\n --- PRODUCTO NO COMPATIBLE ---\n")
     print(f'la matriz {a.nombre} no tiene producto viable con {b.nombre}')
-    print(f'Recuerda que el numero de renglones de {a.nombre} debe ser igual al nuumero de columnas de {b.nombre}')
+    print(f'Recuerda que el numero de renglones de {a.nombre} debe ser igual al numero de columnas de {b.nombre}')
     print(a)
     print(b)
     exit(1)
@@ -27,8 +27,6 @@ a.print()
 b.fill()
 b.print()
 
-
 c = a * b
-print(a, b)
 
 c.print()

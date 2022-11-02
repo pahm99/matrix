@@ -58,3 +58,8 @@ class Matrix:
                     c[ren][col] = c[ren][col] + self[ren][i] * other[i][ren]
             pass
         return c
+
+    def __add__(self, other):
+        if self.renglones != other.renglones or self.columnas != other.columnas:
+            return None
+        pass
