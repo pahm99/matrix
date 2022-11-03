@@ -1,20 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Matrix</title>
     <link rel="stylesheet" href="src/css/app.css">
     <script src="dist/js/app.js" defer></script>
     <script src="dist/js/pyscript.js" defer></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css"
+          integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.js"
+            integrity="sha384-97gW6UIJxnlKemYavrqDHSX3SiygeOwIZhwyOKRfSaf0JWKRVj9hLASHgFTzT+0O" crossorigin="anonymous"></script>
 </head>
 <body>
     <main id="app">
         <main-matrix></main-matrix>
     </main>
 
+    <div class="container" id="runpy">
+        <div id="pybtn" style="visibility: hidden">
+            <py-button label="run python!">
+                def on_click(e):
+                    calcular()
+            </py-button>
+        </div>
+        <h5>Matriz A</h5>
+        <div id="ma"></div>
+        <h5>Matriz B</h5>
+        <div id="mb"></div>
+        <h5>Matriz C</h5>
+        <div id="mc"></div>
+    </div>
+
     <py-config>
         paths = ['./src/Matrix.py']
     </py-config>
-    <py-script src="./src/main.py"></py-script>
+
+    <script type="text/javascript">
+        function renderKatex(str,id){
+            katex.render(str, document.querySelector(id), {
+                throwOnError: true
+            });
+        }
+        function renderMatriz(){
+            renderKatex(document.querySelector('#ma').textContent,'#ma')
+            renderKatex(document.querySelector('#mb').textContent,'#mb')
+            renderKatex(document.querySelector('#mc').textContent,'#mc')
+        }
+
+    </script>
+    <py-script output="runpy" src="./src/main.py"></py-script>
 </body>
 </html>
