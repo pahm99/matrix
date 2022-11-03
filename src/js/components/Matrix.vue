@@ -3,7 +3,8 @@ import { ref } from 'vue';
 const props = defineProps({
     nombre: String,
     ren: Number | String,
-    col: Number | String
+    col: Number | String,
+    proced: Boolean
 })
 
 const emit = defineEmits([
@@ -31,11 +32,13 @@ function upCol(){
             <div>
                 <label :for="'ren_' + nombre">Renglones</label>
                 <input v-model.number="me_ren" class="u-full-width" @input="upRen"
+                       :readonly="proced"
                        type="number" :name="'ren_' + nombre" :id="'ren_' + nombre" required>
             </div>
             <div>
                 <label for="col_a">Columnas</label>
                 <input v-model.number=me_col class="u-full-width" @input="upCol"
+                       :readonly="proced"
                        type="number" :name="'col_' + nombre" :id="'col_' + nombre" required>
             </div>
         </div>

@@ -48,10 +48,10 @@ function runPy(){
         <form @submit.prevent="mult">
             <div class="row">
                 <div class="six columns">
-                    <matrix v-model:ren="matrizA.ren" v-model:col="matrizA.col" nombre="A" />
+                    <matrix :proced="proced" v-model:ren="matrizA.ren" v-model:col="matrizA.col" nombre="A" />
                 </div>
                 <div class="six columns">
-                    <matrix v-model:ren="matrizB.ren" v-model:col="matrizB.col" nombre="B" />
+                    <matrix :proced="proced" v-model:ren="matrizB.ren" v-model:col="matrizB.col" nombre="B" />
 
                 </div>
             </div>
