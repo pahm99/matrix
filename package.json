@@ -1,0 +1,17 @@
+{
+	"scripts": {
+		"dev": "pnpm exec mix",
+		"watch": "pnpm exec mix watch",
+		"prod": "pnpm exec mix --production"
+	},
+	"dependencies": {
+		"laravel-mix": "^6.0.49",
+		"pyscript": "^1.0.6",
+		"vue": "^3.2.41",
+		"vue-loader": "^17.0.1",
+		"webpack": "^5.74.0"
+	},
+	"devDependencies": {
+		"vue-template-compiler": "^2.7.13"
+	}
+}
