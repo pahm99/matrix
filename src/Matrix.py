@@ -16,7 +16,6 @@ class Matrix:
             pass
         pass
 
-
     def __str__(self):
         return f'Matriz {self.nombre} {self.renglones}x{self.columnas}';
 
@@ -38,9 +37,9 @@ class Matrix:
             str = str + '|'
             # print('|', end=' ')
             for col in range(0, self.columnas):
-                str = str + f'{ren + 1}_{col + 1}: {self[ren][col]}'
+                str = str + f'{ren + 1}_{col + 1}: {self[ren][col]}\t'
                 # print(f'{ren + 1}_{col + 1}: {self[ren][col]}', end=" ")
-            #print("|\n")
+            # print("|\n")
             str = str + '|\n'
         pass
         return str
@@ -71,10 +70,12 @@ class Matrix:
             for col in range(c.columnas):
                 # usando notacion sigma, obtenemos las componentes de c
                 c[ren][col] = 0
-                # recorremos a y b
-                # recorremos renglones de a (self)
+                # recorremos a y b recorremos renglones de a (self) el renglon de c es por a columna de c es b es
+                # decir multiplicamos en renglon de a por la columna de b, recorriendo [a columnas] ==  [b renglones]
+                # veces
                 for i in range(0, self.columnas):
-                    c[ren][col] = c[ren][col] + self[ren][i] * other[i][ren]
+                    c[ren][col] = c[ren][col] + (self[ren][i] * other[i][col])
+
             pass
         return c
 
