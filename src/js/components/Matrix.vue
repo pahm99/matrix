@@ -2,8 +2,8 @@
 import { ref } from 'vue';
 const props = defineProps({
     nombre: String,
-    ren: Number,
-    col: Number
+    ren: Number | String,
+    col: Number | String
 })
 
 const emit = defineEmits([

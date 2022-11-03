@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import {computed, ref} from 'vue';
 import MatrixFill from "./MatrixFill";
 
 const matrizA = ref({
@@ -14,7 +14,14 @@ const matrizB = ref({
     matrix: []
 })
 
+
+const valido = computed(e => matrizA.value.ren > 0 && matrizA.value.col > 0 && matrizB.value.ren > 0 && matrizA.value.col >  0)
+
 const proced = ref(false)
+
+const matrixJSON = ref('');
+
+const procedPy = ref(false)
 
 function mult(){
     if(matrizA.value.col !== matrizB.value.ren){
@@ -22,6 +29,16 @@ function mult(){
         return;
     }
     proced.value = true;
+    procedPy.value = true;
+}
+
+function runPy(){
+    matrixJSON.value = JSON.stringify({
+        a: {...matrizA.value},
+        b: {...matrizB.value}
+    });
+    document.querySelector('#pybtn').style.visibility = null;
+    procedPy.value = true;
 }
 
 </script>
@@ -39,7 +56,7 @@ function mult(){
                 </div>
             </div>
             <div style="margin-top: 7px">
-                <button type="submit">
+                <button :disabled="!valido" type="submit">
                     Multiplicar
                 </button>
             </div>
@@ -51,10 +68,20 @@ function mult(){
             <div class="six columns">
                 <matrix-fill v-model:matrix="matrizB.matrix" :ren="matrizB.ren" :col="matrizB.col" />
             </div>
+            <div>
+                <button @click.prevent="runPy">Prepara Python</button>
+            </div>
         </div>
-        <div>
 
+        <div v-if="procedPy">
+            <div id="matrix-json" style="visibility: hidden">
+                {{ matrixJSON }}
+            </div>
+            <div>
+
+            </div>
         </div>
+
     </div>
 </template>
 
