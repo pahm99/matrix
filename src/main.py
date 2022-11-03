@@ -12,6 +12,7 @@ def calcular():
     mA = Matrix(a['ren'], a['col'], 'A', a['matrix'])
     mB = Matrix(b['ren'], b['col'], 'B', b['matrix'])
     mC = mA * mB
+
     if mC is None:
         print('Producto no viable')
         exit(1)
